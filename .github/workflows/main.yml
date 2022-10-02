@@ -211,3 +211,9 @@ jobs:
           ${{ secrets.DOCKERHUB_USERNAME }}/opendirectorydownloader:linux-arm
           ${{ secrets.DOCKERHUB_USERNAME }}/opendirectorydownloader:linux-arm64
 
+      - name: Delete temporary tags
+        run: |
+          docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/opendirectorydownloader:linux-x64
+          docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/opendirectorydownloader:linux-arm
+          docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/opendirectorydownloader:linux-arm64
+
