@@ -147,7 +147,7 @@ jobs:
           - target: linux-arm64
             os: ubuntu-latest
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Get version info
         id: get_version
