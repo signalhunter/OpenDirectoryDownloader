@@ -147,7 +147,7 @@ jobs:
           - target: linux-arm64
             os: ubuntu-latest
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - name: Get version info
         id: get_version
@@ -156,12 +156,12 @@ jobs:
       - name: Download artifact 
         uses: actions/download-artifact@v2
         with:
-          name: ${{ matrix.os }}
+          name: ${{ matrix.target }}
 
       - name: Decompress artifact
         uses: TonyBogdanov/zip@1.0
         with:
-            args: unzip -qq ./OpenDirectoryDownloader-${{ steps.get_version.outputs.VERSION }}-${{ matrix.os }}.zip -d ./app
+            args: unzip -qq ./OpenDirectoryDownloader-${{ steps.get_version.outputs.VERSION }}-${{ matrix.target }}.zip -d ./app
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
